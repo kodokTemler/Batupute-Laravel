@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Desa Batupute</title>
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+
+    <!-- Favicons -->
+    <link rel="shortcut icon" type="image/png" href="{{ asset('assets/img/logo/barru.png') }}">
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Vendor CSS Files -->
+    <link
+      href="{{asset('profile/vendor/bootstrap/css/bootstrap.min.css')}}"
+      rel="stylesheet"
+    />
+    <link
+      href="{{asset('profile/vendor/bootstrap-icons/bootstrap-icons.css')}}"
+      rel="stylesheet"
+    />
+    <link href="{{asset('profile/vendor/aos/aos.css')}}" rel="stylesheet" />
+    <link
+      href="{{asset('profile/vendor/glightbox/css/glightbox.min.css')}}"
+      rel="stylesheet"
+    />
+    <link href="{{asset('profile/vendor/swiper/swiper-bundle.min.css')}}" rel="stylesheet" />
+
+    <!-- Main CSS File -->
+    <link href="{{asset('profile/css/main.css')}}" rel="stylesheet" />
+
+  </head>
+
+  <body class="starter-page-page">
+    <header id="header" class="header fixed-top">
+        <x-navbar-profil></x-navbar-profil>
+    </header>
+
+<main class="main">
+  <!-- Page Title -->
+  <div class="page-title">
+    <div class="heading">
+      <div class="container">
+        <div class="row d-flex justify-content-center text-center">
+          <div class="col-lg-8">
+            <h1>Struktur Kepergurusan Pemerintah Desa</h1>
+            <p class="mb-0">
+              Halaman ini menyajikan informasi lengkap struktur kepengurusan Pemerintah Desa yang berada di Desa Batupute.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <nav class="breadcrumbs">
+      <div class="container">
+        <ol>
+          <li><a href="/">Home</a></li>
+          <li><a href="/#testimonials">Struktur</a></li>
+          <li class="current">Pemerintah Desa</li>
+        </ol>
+      </div>
+    </nav>
+  </div>
+  <!-- End Page Title -->
+
+  <!-- Starter Section -->
+  <section id="starter-section" class="portfolio-details section">
+    <div  class="container section-title" data-aos="fade-up">
+        <div class="row">
+            <div class="col-12 col-md-12 col-sm-12 portfolio-item isotope-item">
+                <div class="portfolio-details-slider swiper init-swiper">
+                    <div class="swiper-wrapper align-items-center">
+                        <div class="swiper-slide">
+                            <a href="{{asset('profile/img/struktur/pemdes.png')}}" class="glightbox" >
+                                <img src="{{asset('profile/img/struktur/pemdes.png')}}" class="img-fluid" alt="" />
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row g-4 mt-5">
+            <h2>Aparat Pemerintah Desa</h2>
+            @if($karyawans->isEmpty())
+                <div class="col-12 col-lg-10 mt-3 text-center mx-auto">
+                  <div class="alert alert-warning" role="alert">
+                    Data Pemerintah Desa tidak tersedia.
+                  </div>
+                </div>
+            @else
+              @foreach ($karyawans as $karyawan)
+              <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+                  <div class="card text-white" style="border-radius: 15px; overflow: hidden; box-shadow: 0 4px 8px rgba(0,0,0,0.2);">
+                   @if(empty($karyawan->foto))
+                        @if($karyawan->jenis_kelamin === 'Laki-laki')
+                            <img src="{{ asset('profile/img/karyawan/lakilaki.png') }}" style="width: 100%; height: 250px; object-fit: cover;" alt="{{ $karyawan->nama }}" />
+                        @else
+                            <img src="{{ asset('profile/img/karyawan/perempuan.png') }}" style="width: 100%; height: 250px; object-fit: cover;" alt="{{ $karyawan->nama }}" />
+                        @endif
+                    @else
+                        <img src="{{ asset('storage/assets/image/karyawan/' . $karyawan->foto) }}" style="width: 100%; height: 250px; object-fit: cover;" alt="{{ $karyawan->nama }}" />
+                    @endif
+                  <div style="background-color: #008374; padding: 1rem; text-align: center;">
+                      <h5 style="margin: 0; font-weight: bold; color: white;">{{$karyawan->nama}}</h5>
+                      <p style="margin: 0; color: white;">{{$karyawan->jabatan}}</p>
+                  </div>
+                  </div>
+              </div>
+              @endforeach
+            @endif
+        </div>
+    </div>
+  </section>
+  <!-- End Starter Section -->
+</main>
+
+
+    <footer id="footer" class="footer accent-background">
+      <x-footer-profil></x-footer-profil>
+    </footer>
+
+    <!-- Scroll Top -->
+    <a
+      href="#"
+      id="scroll-top"
+      class="scroll-top d-flex align-items-center justify-content-center"
+      ><i class="bi bi-arrow-up-short"></i
+    ></a>
+
+    <!-- Preloader -->
+    <div id="preloader"></div>
+
+
+
+    <!-- Vendor JS Files -->
+    <script src="{{asset('profile/vendor/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
+    <script src="{{asset('profile/vendor/php-email-form/validate.js')}}"></script>
+    <script src="{{asset('profile/vendor/aos/aos.js')}}"></script>
+    <script src="{{asset('profile/vendor/glightbox/js/glightbox.min.js')}}"></script>
+    <script src="{{asset('profile/vendor/swiper/swiper-bundle.min.js')}}"></script>
+    <script src="{{asset('profile/vendor/purecounter/purecounter_vanilla.js')}}"></script>
+    <script src="{{asset('profile/vendor/imagesloaded/imagesloaded.pkgd.min.js')}}"></script>
+    <script src="{{asset('profile/vendor/isotope-layout/isotope.pkgd.min.js')}}"></script>
+
+    <!-- Main JS File -->
+    <script src="{{asset('profile/js/main.js')}}"></script>
+  </body>
+</html>

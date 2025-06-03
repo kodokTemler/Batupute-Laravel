@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Desa Batupute</title>
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+
+    <!-- Favicons -->
+    <link rel="shortcut icon" type="image/png" href="{{ asset('assets/img/logo/barru.png') }}">
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Vendor CSS Files -->
+    <link
+      href="{{asset('profile/vendor/bootstrap/css/bootstrap.min.css')}}"
+      rel="stylesheet"
+    />
+    <link
+      href="{{asset('profile/vendor/bootstrap-icons/bootstrap-icons.css')}}"
+      rel="stylesheet"
+    />
+    <link href="{{asset('profile/vendor/aos/aos.css')}}" rel="stylesheet" />
+    <link
+      href="{{asset('profile/vendor/glightbox/css/glightbox.min.css')}}"
+      rel="stylesheet"
+    />
+    <link href="{{asset('profile/vendor/swiper/swiper-bundle.min.css')}}" rel="stylesheet" />
+
+    <!-- Main CSS File -->
+    <link href="{{asset('profile/css/main.css')}}" rel="stylesheet" />
+
+  </head>
+
+  <body class="starter-page-page">
+    <header id="header" class="header fixed-top">
+        <x-navbar-profil></x-navbar-profil>
+    </header>
+
+<main class="main">
+  <!-- Page Title -->
+  <div class="page-title">
+    <div class="heading">
+      <div class="container">
+        <div class="row d-flex justify-content-center text-center">
+          <div class="col-lg-8">
+            <h1>Struktur Kepergurusan Posyandu</h1>
+            <p class="mb-0">
+              Halaman ini menyajikan informasi lengkap struktur kepengurusan Posyandu yang berada di Desa Batupute.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <nav class="breadcrumbs">
+      <div class="container">
+        <ol>
+          <li><a href="/">Home</a></li>
+          <li><a href="/">Struktur</a></li>
+          <li class="current">Posyandu</li>
+        </ol>
+      </div>
+    </nav>
+  </div>
+  <!-- End Page Title -->
+
+  <!-- Starter Section -->
+  <section id="starter-section" class="portfolio-details section">
+    <div  class="container section-title" data-aos="fade-up">
+        <div class="row">
+            <div class="col-12 col-md-12 col-sm-12 portfolio-item isotope-item">
+                <div class="portfolio-details-slider swiper init-swiper">
+                    <div class="swiper-wrapper align-items-center">
+                      <script type="application/json" class="swiper-config">
+                        {
+                          "loop": true,
+                          "speed": 600,
+                          "autoplay": {
+                            "delay": 5000
+                          },
+                          "slidesPerView": "auto",
+                          "navigation": {
+                            "nextEl": ".swiper-button-next",
+                            "prevEl": ".swiper-button-prev"
+                          },
+                          "pagination": {
+                            "el": ".swiper-pagination",
+                            "type": "bullets",
+                            "clickable": true
+                          }
+                        }
+                      </script>
+                        <div class="swiper-slide">
+                            <a href="{{asset('profile/img/struktur/posyandu/1.png')}}" class="glightbox" >
+                                <img src="{{asset('profile/img/struktur/posyandu/1.png')}}" class="img-fluid" alt="" />
+                            </a>
+                        </div>
+                        <div class="swiper-slide">
+                            <a href="{{asset('profile/img/struktur/posyandu/2.png')}}" class="glightbox" >
+                                <img src="{{asset('profile/img/struktur/posyandu/2.png')}}" class="img-fluid" alt="" />
+                            </a>
+                        </div>
+                        <div class="swiper-slide">
+                            <a href="{{asset('profile/img/struktur/posyandu/3.png')}}" class="glightbox" >
+                                <img src="{{asset('profile/img/struktur/posyandu/3.png')}}" class="img-fluid" alt="" />
+                            </a>
+                        </div>
+                        <div class="swiper-slide">
+                            <a href="{{asset('profile/img/struktur/posyandu/4.png')}}" class="glightbox" >
+                                <img src="{{asset('profile/img/struktur/posyandu/4.png')}}" class="img-fluid" alt="" />
+                            </a>
+                        </div>
+                        <div class="swiper-slide">
+                            <a href="{{asset('profile/img/struktur/posyandu/5.png')}}" class="glightbox" >
+                                <img src="{{asset('profile/img/struktur/posyandu/5.png')}}" class="img-fluid" alt="" />
+                            </a>
+                        </div>
+                    </div>
+                    <div class="swiper-button-prev"></div>
+                    <div class="swiper-button-next"></div>
+                    <div class="swiper-pagination"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+  </section>
+  <!-- End Starter Section -->
+</main>
+
+
+    <footer id="footer" class="footer accent-background">
+      <x-footer-profil></x-footer-profil>
+    </footer>
+
+    <!-- Scroll Top -->
+    <a
+      href="#"
+      id="scroll-top"
+      class="scroll-top d-flex align-items-center justify-content-center"
+      ><i class="bi bi-arrow-up-short"></i
+    ></a>
+
+    <!-- Preloader -->
+    <div id="preloader"></div>
+
+
+
+    <!-- Vendor JS Files -->
+    <script src="{{asset('profile/vendor/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
+    <script src="{{asset('profile/vendor/php-email-form/validate.js')}}"></script>
+    <script src="{{asset('profile/vendor/aos/aos.js')}}"></script>
+    <script src="{{asset('profile/vendor/glightbox/js/glightbox.min.js')}}"></script>
+    <script src="{{asset('profile/vendor/swiper/swiper-bundle.min.js')}}"></script>
+    <script src="{{asset('profile/vendor/purecounter/purecounter_vanilla.js')}}"></script>
+    <script src="{{asset('profile/vendor/imagesloaded/imagesloaded.pkgd.min.js')}}"></script>
+    <script src="{{asset('profile/vendor/isotope-layout/isotope.pkgd.min.js')}}"></script>
+
+    <!-- Main JS File -->
+    <script src="{{asset('profile/js/main.js')}}"></script>
+  </body>
+</html>

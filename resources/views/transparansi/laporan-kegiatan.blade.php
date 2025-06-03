@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Desa Batupute</title>
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+
+    <!-- Favicons -->
+    <link rel="shortcut icon" type="image/png" href="{{ asset('assets/img/logo/barru.png') }}">
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Vendor CSS Files -->
+    <link
+      href="{{asset('profile/vendor/bootstrap/css/bootstrap.min.css')}}"
+      rel="stylesheet"
+    />
+    <link
+      href="{{asset('profile/vendor/bootstrap-icons/bootstrap-icons.css')}}"
+      rel="stylesheet"
+    />
+    <link href="{{asset('profile/vendor/aos/aos.css')}}" rel="stylesheet" />
+    <link
+      href="{{asset('profile/vendor/glightbox/css/glightbox.min.css')}}"
+      rel="stylesheet"
+    />
+    <link href="{{asset('profile/vendor/swiper/swiper-bundle.min.css')}}" rel="stylesheet" />
+
+    <!-- Main CSS File -->
+    <link href="{{asset('profile/css/main.css')}}" rel="stylesheet" />
+
+    <style>
+    @media (max-width: 576px) {
+      .container.blog-posts.section {
+        padding-left: 1rem;
+        padding-right: 1rem;
+      }
+    }
+    </style>
+  </head>
+
+  <body class="starter-page-page">
+    <header id="header" class="header fixed-top">
+        <x-navbar-profil></x-navbar-profil>
+    </header>
+
+    <main class="main">
+      <!-- Page Title -->
+      <div class="page-title">
+        <div class="heading">
+          <div class="container">
+            <div class="row d-flex justify-content-center text-center">
+              <div class="col-lg-8">
+                <h1>Laporan Kegiatan</h1>
+                <p class="mb-0">
+                  Halaman ini menyajikan informasi lengkap mengenai Kegiatan yang ada di Desa Batupute.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <nav class="breadcrumbs">
+          <div class="container">
+            <ol>
+              <li><a href="/">Home</a></li>
+              <li><a href="/">Transparansi</a></li>
+              <li class="current">Laporan Kegiatan</li>
+            </ol>
+          </div>
+        </nav>
+      </div>
+      <!-- End Page Title -->
+
+      <!-- Starter Section Section -->
+      <section id="starter-section" class="starter-section section">
+        <!-- Section Title -->
+        <div class="container section-title" data-aos="fade-up">
+            <h2>Laporan Kegiatan</h2>
+            <p>
+                Halaman ini menyajikan informasi lengkap mengenai laporan kegiatan yang ada di Desa Batupute.
+            </p>
+        </div>
+        <!-- End Section Title -->
+        <div class="container blog-posts section" data-aos="fade-up">
+          @if ($laporanKegiatan->isEmpty())
+          <div class="col-12 col-lg-10 mt-3">
+              <div class="alert alert-warning" role="alert">
+                Data belum ada.
+              </div>
+          </div>
+            @else
+          <div class="row gy-4">
+            @foreach ($laporanKegiatan as $lapokeg)
+            <div class="col-lg-4 col-md-6 col-sm-12 mb-4">
+                <article class="card h-100 shadow-sm border-0">
+                    <div class="post-img">
+                      <a href="{{asset('storage/assets/image/laporanKegiatan/'.$lapokeg->foto_kegiatan)}}" class="glightbox" >
+                        <img src="{{ asset('storage/assets/image/laporanKegiatan/'.$lapokeg->foto_kegiatan) }}" alt="Foto Kegiatan" class="card-img-top img-fluid" />
+                      </a>
+                    </div>
+
+                    <div class="card-body d-flex flex-column">
+                    <h4 class="card-title mb-3 text-decoration-none text-dark fw-bold">
+                        {{ \Illuminate\Support\Str::limit($lapokeg->nama_kegiatan, 50) }}
+                    </h4>
+
+                    <div class="post-meta mb-3">
+                         <p class="mb-1">
+                        <i class="bi bi-geo-alt-fill"></i>
+                        <span>Lokasi:</span> {{ $lapokeg->lokasi }}
+                    </p>
+                        <p class="mb-1">
+                        <i class="bi bi-cash-stack"></i>
+                        <span>Anggaran:</span> Rp. {{ number_format($lapokeg->anggaran, 0, ',', '.') }}
+                        </p>
+                        <p class="mb-0">
+                        <i class="bi bi-calendar-event"></i>
+                        <span>Tanggal:</span>
+                        <time datetime="{{ $lapokeg->tanggal_kegiatan }}">{{ $lapokeg->tanggal_kegiatan }}</time>
+                        </p>
+                    </div>
+
+                    <div class="mt-auto d-flex gap-2">
+                        <a href="javascript:void(0);"
+                        class="btn btn-outline-danger btn-sm w-100"
+                        onclick="openModal('{{$lapokeg->file_laporan}}')">
+                        <i class="bi bi-file-earmark-fill me-1"></i>Lihat Berkas
+                        </a>
+                        <a href="{{route('laporan-kegiatan.download', $lapokeg->file_laporan)}}"
+                        class="btn btn-outline-success btn-sm w-100" >
+                        <i class="bi bi-download me-1"></i>Download
+                        </a>
+                    </div>
+                    </div>
+                </article>
+            </div>
+
+            
+            @endforeach
+          </div>
+        
+        <div class="row justify-content-center">
+            <div class="col-12 col-lg-10 mt-4">
+              <div class="container">
+          <div class="d-flex justify-content-center">
+            <!-- Custom Pagination Links -->
+            <ul class="pagination justify-content-center">
+              <!-- Previous Page Link -->
+              @if ($laporanKegiatan->onFirstPage())
+                <li class="page-item disabled">
+                  <a href="#" class="page-link"><i class="bi bi-chevron-left"></i></a>
+                </li>
+              @else
+                <li class="page-item">
+                  <a href="{{ $laporanKegiatan->previousPageUrl() }}" class="page-link"><i class="bi bi-chevron-left"></i></a>
+                </li>
+              @endif
+      
+              <!-- Page Number Links -->
+              @php
+                $totalPages = $laporanKegiatan->lastPage();
+                $currentPage = $laporanKegiatan->currentPage();
+                $pagesToShow = 3;
+              @endphp
+      
+              <!-- Conditionally Display Pagination Items -->
+              @if ($totalPages <= $pagesToShow)
+                @foreach(range(1, $totalPages) as $i)
+                  <li class="page-item {{ $i == $currentPage ? 'active' : '' }}">
+                    <a href="{{ $laporanKegiatan->url($i) }}" class="page-link">{{ $i }}</a>
+                  </li>
+                @endforeach
+              @else
+                <!-- Always Show First Page -->
+                <li class="page-item {{ 1 == $currentPage ? 'active' : '' }}">
+                  <a href="{{ $laporanKegiatan->url(1) }}" class="page-link">1</a>
+                </li>
+                
+                <!-- Show Ellipsis if Current Page is Not Near the First or Last Page -->
+                @if ($currentPage > 2)
+                  <li class="page-item disabled"><span class="page-link">...</span></li>
+                @endif
+      
+                <!-- Show Middle Pages (Up to 3 Pages) -->
+                @foreach(range(max(2, $currentPage - 1), min($totalPages - 1, $currentPage + 1)) as $i)
+                  <li class="page-item {{ $i == $currentPage ? 'active' : '' }}">
+                    <a href="{{ $laporanKegiatan->url($i) }}" class="page-link">{{ $i }}</a>
+                  </li>
+                @endforeach
+      
+                <!-- Show Ellipsis if Current Page is Not Near the Last Page -->
+                @if ($currentPage < $totalPages - 1)
+                  <li class="page-item disabled"><span class="page-link">...</span></li>
+                @endif
+      
+                <!-- Always Show Last Page -->
+                <li class="page-item {{ $totalPages == $currentPage ? 'active' : '' }}">
+                  <a href="{{ $laporanKegiatan->url($totalPages) }}" class="page-link">{{ $totalPages }}</a>
+                </li>
+              @endif
+      
+              <!-- Next Page Link -->
+              @if ($laporanKegiatan->hasMorePages())
+                <li class="page-item">
+                  <a href="{{ $laporanKegiatan->nextPageUrl() }}" class="page-link"><i class="bi bi-chevron-right"></i></a>
+                </li>
+              @else
+                <li class="page-item disabled">
+                  <a href="#" class="page-link"><i class="bi bi-chevron-right"></i></a>
+                </li>
+              @endif
+            </ul>
+          </div>
+        </div>
+            </div>
+          </div>
+          @endif
+          </div>
+      </section>
+      <!-- /Starter Section Section -->
+    </main>
+
+    <footer id="footer" class="footer accent-background">
+      <x-footer-profil></x-footer-profil>
+    </footer>
+
+    <!-- Scroll Top -->
+    <a
+      href="#"
+      id="scroll-top"
+      class="scroll-top d-flex align-items-center justify-content-center"
+      ><i class="bi bi-arrow-up-short"></i
+    ></a>
+
+    <!-- Preloader -->
+    <div id="preloader"></div>
+            <!-- Modal -->
+            <div class="modal fade" id="fileModal" tabindex="-1" aria-labelledby="fileModalLabel" aria-hidden="true">
+              <div class="modal-dialog modal-xl">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title">Preview File</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Tutup"></button>
+                  </div>
+                  <div class="modal-body">
+                    <iframe id="fileFrame" src="" width="100%" height="600px" frameborder="0"></iframe>
+                  </div>
+                </div>
+              </div>
+            </div>
+    <script>
+function openModal(filename) {
+    const modal = new bootstrap.Modal(document.getElementById('fileModal'));
+    document.getElementById('fileFrame').src = `/transparansi/laporan-kegiatan/${filename}`;
+    modal.show();
+  }
+    </script>
+
+    <!-- Vendor JS Files -->
+    <script src="{{asset('profile/vendor/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
+    <script src="{{asset('profile/vendor/php-email-form/validate.js')}}"></script>
+    <script src="{{asset('profile/vendor/aos/aos.js')}}"></script>
+    <script src="{{asset('profile/vendor/glightbox/js/glightbox.min.js')}}"></script>
+    <script src="{{asset('profile/vendor/swiper/swiper-bundle.min.js')}}"></script>
+    <script src="{{asset('profile/vendor/purecounter/purecounter_vanilla.js')}}"></script>
+    <script src="{{asset('profile/vendor/imagesloaded/imagesloaded.pkgd.min.js')}}"></script>
+    <script src="{{asset('profile/vendor/isotope-layout/isotope.pkgd.min.js')}}"></script>
+
+    <!-- Main JS File -->
+    <script src="{{asset('profile/js/main.js')}}"></script>
+  </body>
+</html>
