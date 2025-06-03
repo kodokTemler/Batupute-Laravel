@@ -2,6 +2,10 @@
 /node_modules
 /public/build
 /public/hot
+<<<<<<< HEAD
+=======
+/public/storage
+>>>>>>> 02a6c1c (first init)
 /storage/*.key
 /vendor
 .env
