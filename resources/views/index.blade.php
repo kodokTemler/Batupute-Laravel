@@ -85,7 +85,64 @@
               </div>
             </div>
             <div class="col-lg-5 order-1 order-lg-2">
-              <img src="{{asset('profile/img/hero-img.svg')}}" class="img-fluid" alt="" />
+              <div class="portfolio-details-slider swiper init-swiper">
+            <script type="application/json" class="swiper-config">
+              {
+                "loop": true,
+                "speed": 600,
+                "autoplay": {
+                  "delay": 5000
+                },
+                "slidesPerView": "auto",
+                "navigation": {
+                  "nextEl": ".swiper-button-next",
+                  "prevEl": ".swiper-button-prev"
+                },
+                "pagination": {
+                  "el": ".swiper-pagination",
+                  "type": "bullets",
+                  "clickable": true
+                }
+              }
+            </script>
+            <div class="swiper-wrapper align-items-center">
+              <div class="swiper-slide">
+                <a href="{{asset('profile/img/kantordesa1.jpg')}}" class="glightbox" >
+                    <img src="{{asset('profile/img/kantordesa1.jpg')}}" class="img-fluid" alt="" />
+                </a>
+              </div>
+              <div class="swiper-slide">
+                <a href="{{asset('profile/img/kantordesa2.jpg')}}" class="glightbox" >
+                    <img src="{{asset('profile/img/kantordesa2.jpg')}}" class="img-fluid" alt="" />
+                </a>
+              </div>
+              <div class="swiper-slide">
+                <a href="{{asset('profile/img/kantordesa3.jpg')}}" class="glightbox" >
+                    <img src="{{asset('profile/img/kantordesa3.jpg')}}" class="img-fluid" alt="" />
+                </a>
+              </div>
+              
+            </div>
+            
+          </div>
+             {{-- <div class="swiper-slide">
+               <div class="swiper-slide">
+                <a href="{{asset('profile/img/kantordesa1.jpg')}}" class="glightbox" >
+                    <img src="{{asset('profile/img/kantordesa1.jpg')}}" class="img-fluid" alt="" />
+                </a>
+              </div>
+              <div class="swiper-slide">
+                <a href="{{asset('profile/img/kantordesa2.jpg')}}" class="glightbox" >
+                    <img src="{{asset('profile/img/kantordesa2.jpg')}}" class="img-fluid" alt="" />
+                </a>
+              </div>
+              <div class="swiper-slide">
+                <a href="{{asset('profile/img/kantordesa3.jpg')}}" class="glightbox" >
+                    <img src="{{asset('profile/img/kantordesa3.jpg')}}" class="img-fluid" alt="" />
+                </a>
+              </div>
+             </div> --}}
+              
             </div>
           </div>
         </div>
@@ -382,7 +439,7 @@
           class="call-to-action section dark-background"
         >
           <div class="container">
-            <img src="{{asset('profile/img/batupute.jpg')}}" alt="" />
+            <img src="{{asset('profile/img/batuputebersama.jpg')}}" alt="" />
             <div
               class="content row justify-content-center"
               data-aos="zoom-in"

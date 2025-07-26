@@ -115,6 +115,12 @@
         </div>
     </li>
 
+     <li class="nav-item {{ request()->routeIs('admin.dokumen-khusus') ? 'active' : '' }}">
+        <a class="nav-link" href="{{ route('admin.dokumen-khusus') }}">
+            <i class="fas fa-fw fa-newspaper"></i>
+            <span>Dokumen Khusus</span>
+        </a>
+    </li>
         <!-- Divider -->
     <hr class="sidebar-divider">
     <div class="sidebar-heading">

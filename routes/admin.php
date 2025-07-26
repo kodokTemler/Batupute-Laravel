@@ -20,6 +20,7 @@ use App\Http\Controllers\Admins\LayananPengaduanController;
 use App\Http\Controllers\Admins\DashboardController;
 use App\Http\Controllers\Admins\TransparansiBumdesController;
 use App\Http\Controllers\Admins\KontakController;
+use App\Http\Controllers\Admins\DokumenKhususController;
 use App\Http\Middleware\PreventBackHistory;
 use App\Http\Middleware\TrackAdminLogin;
 
@@ -133,4 +134,10 @@ Route::middleware(['auth:admin', PreventBackHistory::class, TrackAdminLogin::cla
     Route::get('/kontak', [KontakController::class, 'showView'])->name('kontak');
     Route::post('/kontak/update/{id}', [KontakController::class, 'update'])->name('kontak.update');
     Route::delete('/kontak/delete/{id}', [KontakController::class, 'destroy'])->name('kontak.delete');
+
+    // Dokumen Khusus
+    Route::get('/dokumen-khusus', [DokumenKhususController::class, 'showView'])->name('dokumen-khusus');
+    Route::post('/dokumen-khusus/store', [DokumenKhususController::class, 'store'])->name('dokumen-khusus.store');
+    Route::post('/dokumen-khusus/update/{id}', [DokumenKhususController::class, 'update'])->name('dokumen-khusus.update');
+    Route::delete('/dokumen-khusus/delete/{id}', [DokumenKhususController::class, 'destroy'])->name('dokumen-khusus.delete');
 });

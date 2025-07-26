@@ -69,6 +69,7 @@
                     @yield('pengaduan')
                     @yield('transparansi-bumdes')
                     @yield('kontak')
+                    @yield('dokumen-khusus')
                 </div>
                 <!-- /.container-fluid -->
 

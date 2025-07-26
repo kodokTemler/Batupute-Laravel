@@ -221,7 +221,7 @@
                     </div> 
 
 <script>
-     document.querySelectorAll(".file-input").forEach(function(input) {
+    document.querySelectorAll(".file-input").forEach(function(input) {
     input.addEventListener("change", function() {
         const file = this.files[0];
         const maxSize = 5 * 1024 * 1024; // 5MB
