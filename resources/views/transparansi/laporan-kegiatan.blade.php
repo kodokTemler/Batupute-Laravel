@@ -83,22 +83,25 @@
       <section id="starter-section" class="starter-section section">
         <!-- Section Title -->
         <div class="container section-title" data-aos="fade-up">
-            <h2>Laporan Kegiatan</h2>
+            <div class="row justify-content-center mt-5">
+                <div class="col-12 col-md-10">
+                    <h2>Laporan Kegiatan</h2>
             <p>
                 Halaman ini menyajikan informasi lengkap mengenai laporan kegiatan yang ada di Desa Batupute.
             </p>
-        </div>
-        <!-- End Section Title -->
-        <div class="container blog-posts section" data-aos="fade-up">
-          @if ($laporanKegiatan->isEmpty())
-          <div class="col-12 col-lg-10 mt-3">
-              <div class="alert alert-warning" role="alert">
-                Data belum ada.
-              </div>
-          </div>
+            </div>
+            
+
+            
+            
+            @if ($laporanKegiatan->isEmpty())
+            <div class="col-12 col-lg-10 mt-3">
+                <div class="alert alert-warning" role="alert">
+                  Data belum ada.
+                </div>
+            </div>
             @else
-          <div class="row gy-4">
-            @foreach ($laporanKegiatan as $lapokeg)
+             @foreach ($laporanKegiatan as $lapokeg)
             <div class="col-lg-4 col-md-6 col-sm-12 mb-4">
                 <article class="card h-100 shadow-sm border-0">
                     <div class="post-img">
@@ -142,13 +145,8 @@
                     </div>
                 </article>
             </div>
-
-            
             @endforeach
-          </div>
-        
-        <div class="row justify-content-center">
-            <div class="col-12 col-lg-10 mt-4">
+        <div class="col-12 col-lg-10 mt-4">
               <div class="container">
           <div class="d-flex justify-content-center">
             <!-- Custom Pagination Links -->
@@ -221,9 +219,10 @@
           </div>
         </div>
             </div>
-          </div>
           @endif
-          </div>
+            </div>
+        </div>
+        <!-- End Section Title -->
       </section>
       <!-- /Starter Section Section -->
     </main>

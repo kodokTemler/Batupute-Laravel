@@ -35,7 +35,7 @@
     <link href="{{asset('profile/vendor/swiper/swiper-bundle.min.css')}}" rel="stylesheet" />
 
     <!-- Main CSS File -->
-    <link href="{{asset('profile/css/main.css')}}" rel="stylesheet" />
+    <link href="{{asset('profile/css/main.css')}}?v={{ time() }}" rel="stylesheet" />
 <style>
   .accent {
     color: #2a9d8f;
@@ -85,64 +85,7 @@
               </div>
             </div>
             <div class="col-lg-5 order-1 order-lg-2">
-              <div class="portfolio-details-slider swiper init-swiper">
-            <script type="application/json" class="swiper-config">
-              {
-                "loop": true,
-                "speed": 600,
-                "autoplay": {
-                  "delay": 5000
-                },
-                "slidesPerView": "auto",
-                "navigation": {
-                  "nextEl": ".swiper-button-next",
-                  "prevEl": ".swiper-button-prev"
-                },
-                "pagination": {
-                  "el": ".swiper-pagination",
-                  "type": "bullets",
-                  "clickable": true
-                }
-              }
-            </script>
-            <div class="swiper-wrapper align-items-center">
-              <div class="swiper-slide">
-                <a href="{{asset('profile/img/kantordesa1.jpg')}}" class="glightbox" >
-                    <img src="{{asset('profile/img/kantordesa1.jpg')}}" class="img-fluid" alt="" />
-                </a>
-              </div>
-              <div class="swiper-slide">
-                <a href="{{asset('profile/img/kantordesa2.jpg')}}" class="glightbox" >
-                    <img src="{{asset('profile/img/kantordesa2.jpg')}}" class="img-fluid" alt="" />
-                </a>
-              </div>
-              <div class="swiper-slide">
-                <a href="{{asset('profile/img/kantordesa3.jpg')}}" class="glightbox" >
-                    <img src="{{asset('profile/img/kantordesa3.jpg')}}" class="img-fluid" alt="" />
-                </a>
-              </div>
-              
-            </div>
-            
-          </div>
-             {{-- <div class="swiper-slide">
-               <div class="swiper-slide">
-                <a href="{{asset('profile/img/kantordesa1.jpg')}}" class="glightbox" >
-                    <img src="{{asset('profile/img/kantordesa1.jpg')}}" class="img-fluid" alt="" />
-                </a>
-              </div>
-              <div class="swiper-slide">
-                <a href="{{asset('profile/img/kantordesa2.jpg')}}" class="glightbox" >
-                    <img src="{{asset('profile/img/kantordesa2.jpg')}}" class="img-fluid" alt="" />
-                </a>
-              </div>
-              <div class="swiper-slide">
-                <a href="{{asset('profile/img/kantordesa3.jpg')}}" class="glightbox" >
-                    <img src="{{asset('profile/img/kantordesa3.jpg')}}" class="img-fluid" alt="" />
-                </a>
-              </div>
-             </div> --}}
-              
+              <img src="{{asset('profile/img/kantordesa2.jpg')}}" class="img-fluid" alt="" />
             </div>
           </div>
         </div>
@@ -206,7 +149,7 @@
             <!-- Gambar Kepala Desa -->
             <div class="col-lg-5 text-center text-lg-start" data-aos="fade-up" data-aos-delay="100">
               <img
-                src="{{asset('profile/img/kadesputih.png')}}"
+                src="{{asset('profile/img/FotoSambutan.png')}}"
                 class="img-fluid rounded-circle rounded-4 w-lg-100 w-75 w-md-50 mx-auto mx-lg-0 "
                 alt="Foto Kepala Desa"
               />
@@ -285,8 +228,7 @@
                 <div class="section-title">
                   <h2 class="mb-2">Visi Misi</h2>
                   <p class="text-muted">
-                    Berikut ini adalah Visi Misi dari Kepala Desa Batupute yang
-                    ingin di capai oleh.
+                    Berikut ini adalah Visi dan Misi Kepala Desa Batupute.
                   </p>
                 </div>
                 <div class="faq-item">
@@ -629,7 +571,10 @@
                             <img src="{{ asset('profile/img/karyawan/perempuan.png') }}" style="width: 100%; height: 250px; object-fit: cover;" alt="{{ $krywan->nama }}" />
                         @endif
                     @else
+                     <a href="{{ asset('storage/assets/image/karyawan/' . $krywan->foto) }}" class="glightbox" >
                         <img src="{{ asset('storage/assets/image/karyawan/' . $krywan->foto) }}" style="width: 100%; height: 250px; object-fit: cover;" alt="{{ $krywan->nama }}" />
+                    </a>
+                        
                     @endif
                 </div>
                 <div style="background-color: #008374; padding: 1rem; text-align: center;">
@@ -651,7 +596,7 @@
     <section id="contact" class="contact section">
         <!-- Section Title -->
         <div class="container section-title" data-aos="fade-up">
-          <h2>Kontak</h2>
+          <h2>Kontak & Saran</h2>
           <p>
             Hubungi kami untuk pertanyaan, saran, atau informasi lebih lanjut
             tentang Desa Batupute.
@@ -690,7 +635,7 @@
                       type="text" 
                       name="nama" 
                       class="form-control" 
-                      placeholder="Your Name" 
+                      placeholder="Masukkan Nama Lengkap" 
                       required />
                   </div>
         
@@ -699,7 +644,7 @@
                       type="email" 
                       class="form-control" 
                       name="email" 
-                      placeholder="Your Email" 
+                      placeholder="Masukkan Email" 
                       required />
                   </div>
         
@@ -708,7 +653,7 @@
                       type="text" 
                       class="form-control" 
                       name="subject" 
-                      placeholder="Subject" 
+                      placeholder="Subjek" 
                       required />
                   </div>
         
@@ -717,7 +662,7 @@
                       class="form-control" 
                       name="message" 
                       rows="8" 
-                      placeholder="Message" 
+                      placeholder="Pesan" 
                       required></textarea>
                   </div>
         
@@ -727,7 +672,7 @@
                       <div class="error-message"></div>
                       <div class="sent-message">Your message has been sent. Thank you!</div>
                     </div>
-                    <button type="submit">Send Message</button>
+                    <button type="submit">Kirim</button>
                   </div>
                 </div>
               </form>

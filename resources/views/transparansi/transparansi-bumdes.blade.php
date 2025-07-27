@@ -103,7 +103,7 @@
               </p>
             </div>
             @if ($transparansiBumdes->isEmpty())
-                <div class="col-12 text-center mt-4">
+                <div class="col-12 col-lg-10 text-center mt-4">
                     <div class="alert alert-warning" role="alert">
                     Data belum ada.
                     </div>

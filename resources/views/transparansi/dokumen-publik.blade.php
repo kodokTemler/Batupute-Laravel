@@ -72,9 +72,9 @@
           <div class="container">
             <div class="row d-flex justify-content-center text-center">
               <div class="col-lg-8">
-                <h1>Dokumen Publik</h1>
+                <h1>Dokumen Perencanaan</h1>
                 <p class="mb-0">
-                  Halaman ini menyajikan informasi lengkap mengenai dokumen publik yang ada di Desa Batupute.
+                  Halaman ini menyajikan informasi lengkap mengenai dokumen perencanaan yang ada di Desa Batupute.
                 </p>
               </div>
             </div>
@@ -85,7 +85,7 @@
             <ol>
               <li><a href="/">Home</a></li>
               <li><a href="/">Transparansi</a></li>
-              <li class="current">Dokumen Publik</li>
+              <li class="current">Dokumen Perencanaan</li>
             </ol>
           </div>
         </nav>
@@ -97,9 +97,9 @@
         <div class="container section-title" data-aos="fade-up">
           <div class="row justify-content-center mt-5">
             <div class="col-12 col-md-10">
-              <h2>Dokumen Publik</h2>
+              <h2>Dokumen Perencanaan</h2>
               <p>
-                Berikut adalah daftar dokumen publik yang dapat diakses oleh masyarakat.
+                Berikut adalah daftar dokumen perencanaan yang dapat diakses oleh masyarakat.
               </p>
             </div>
             @if ($dokumenPublik->isEmpty())

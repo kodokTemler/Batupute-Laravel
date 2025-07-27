@@ -97,6 +97,26 @@
                     <img src="{{asset('profile/img/petadesa.png')}}" class="img-fluid" alt="" />
                 </a>
               </div>
+              <div class="swiper-slide">
+                <a href="{{asset('profile/img/batuputebersama.jpg')}}" class="glightbox" >
+                    <img src="{{asset('profile/img/batuputebersama.jpg')}}" class="img-fluid" alt="" />
+                </a>
+              </div>
+              <div class="swiper-slide">
+                <a href="{{asset('profile/img/kantordesa1.jpg')}}" class="glightbox" >
+                    <img src="{{asset('profile/img/kantordesa1.jpg')}}" class="img-fluid" alt="" />
+                </a>
+              </div>
+              <div class="swiper-slide">
+                <a href="{{asset('profile/img/kantordesa2.jpg')}}" class="glightbox" >
+                    <img src="{{asset('profile/img/kantordesa2.jpg')}}" class="img-fluid" alt="" />
+                </a>
+              </div>
+              <div class="swiper-slide">
+                <a href="{{asset('profile/img/kantordesa3.jpg')}}" class="glightbox" >
+                    <img src="{{asset('profile/img/kantordesa3.jpg')}}" class="img-fluid" alt="" />
+                </a>
+              </div>
               
             </div>
             <div class="swiper-button-prev"></div>

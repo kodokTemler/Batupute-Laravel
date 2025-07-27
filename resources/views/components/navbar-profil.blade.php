@@ -38,7 +38,7 @@
             <ul>
               <li><a href="/transparansi/transparansi-anggaran" class="{{ Request::is('transparansi/transparansi-anggaran') ? 'active' : '' }}">Transparansi Anggaran</a></li>
               <li><a href="/transparansi/laporan-kegiatan" class="{{ Request::is('transparansi/laporan-kegiatan') ? 'active' : '' }}">Laporan Kegiatan</a></li>
-              <li><a href="/transparansi/dokumen-publik" class="{{ Request::is('transparansi/dokumen-publik') ? 'active' : '' }}">Dokumen Publik</a></li>
+              <li><a href="/transparansi/dokumen-publik" class="{{ Request::is('transparansi/dokumen-publik') ? 'active' : '' }}">Dokumen Perencanaan</a></li>
               <li><a href="/transparansi/transparansi-bumdes" class="{{ Request::is('transparansi/transparansi-bumdes') ? 'active' : '' }}">Bumdes dan Kopdes MP</a></li>
             </ul>
           </li>
